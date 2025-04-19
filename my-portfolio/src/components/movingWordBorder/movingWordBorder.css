@@ -1,30 +1,71 @@
 .moving-text-border {
   position: absolute;
   overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
-  height: 50px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.top-border, .bottom-border {
+  width: 100%;
+  height: 50px;
+  white-space: nowrap;
+}
+
+.left-border, .right-border {
+  height: 100%;
+  width: 50px;
+  flex-direction: column;
 }
 
 .top-border { top: 0; left: 0; }
 .bottom-border { bottom: 0; left: 0; }
-.left-border, .right-border {
-  writing-mode: vertical-rl;
-  height: 100%;
-  width: 50px;
-}
-
 .left-border { left: 0; }
 .right-border { right: 0; }
 
 .moving-text {
   display: inline-block;
-  animation: scroll-left 20s linear infinite;
+}
+
+.top-border .moving-text {
+  animation: scroll-right 50s linear infinite;
+}
+
+.bottom-border .moving-text {
+  animation: scroll-left 50s linear infinite;
+}
+
+.left-border .moving-text,
+.right-border .moving-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-border .moving-text {
+  animation: scroll-up 50s linear infinite;
+}
+
+.right-border .moving-text {
+  animation: scroll-down 50s linear infinite;
 }
 
 @keyframes scroll-left {
-  from { transform: translateX(100%); }
-  to { transform: translateX(-100%); }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes scroll-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@keyframes scroll-down {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
 }
