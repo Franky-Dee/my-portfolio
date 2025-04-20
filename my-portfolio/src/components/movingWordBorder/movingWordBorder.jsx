@@ -29,12 +29,12 @@ function BorderSide({ position }) {
       <div className="moving-text">
         {[...Array(2)].flatMap((_, j) =>
           Array.from({ length: 50 }, (_, i) => (
-            <span
+            <span className={`words-${position}`}
               key={`${j}-${i}`}
               style={{
                 fontSize: "64px",
                 fontFamily: fonts[i % fonts.length],
-                margin: "100px 100px",
+                // margin: "100px 100px",
                 display: "inline-block",
                 transform:
                   position === "left"
