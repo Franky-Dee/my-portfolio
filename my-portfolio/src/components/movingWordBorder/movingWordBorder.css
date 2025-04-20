@@ -9,7 +9,7 @@
 
 .top-border, .bottom-border {
   width: 100%;
-  height: 50px;
+  height: 100px;
   white-space: nowrap;
 }
 
@@ -43,11 +43,11 @@
 }
 
 .left-border .moving-text {
-  animation: scroll-up 50s linear infinite;
+  animation: scroll-up 60s linear infinite;
 }
 
 .right-border .moving-text {
-  animation: scroll-down 50s linear infinite;
+  animation: scroll-down 60s linear infinite;
 }
 
 @keyframes scroll-left {

@@ -1,11 +1,15 @@
 import './movingWordBorder.css';
 
-const words = ["Franky", "Franky", "Franky", "Franky", "Franky", "Franky", "Franky"];
+const words = ["Bash", "PostgreSQL", "Franky", "Python", "404", "Git", "Linux", "JavaScript", "CODE", "SQL", "NeoVim", "XML", "React", "<Error>" ];
 const fonts = [
-  "'Courier New', monospace",
-  "'Times New Roman', serif",
-  "'Arial', sans-serif",
-  "'Comic Sans MS', cursive"
+    "'DM Serif Text', serif",
+    "'Imperial Script', cursive",
+    "'Fascinate Inline', system-ui",
+    "'Silkscreen', sans-serif",
+    "'Creepster', system-ui",
+    "'Notable', sans-serif",
+    "'Libre Barcode 128 Text', system-ui",
+    "'Danfo', serif",
 ];
 
 function MovingWordBorder() {
@@ -28,8 +32,7 @@ function BorderSide({ position }) {
             <span
               key={`${j}-${i}`}
               style={{
-                fontSize: "50px",
-                fontWeight: "bold",
+                fontSize: "64px",
                 fontFamily: fonts[i % fonts.length],
                 margin: "100px 100px",
                 display: "inline-block",
