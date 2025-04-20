@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  background-color: white;
 }
 
 .top-border, .bottom-border {
@@ -15,7 +16,7 @@
 
 .left-border, .right-border {
   height: 100%;
-  width: 50px;
+  width: 100px;
   flex-direction: column;
 }
 
