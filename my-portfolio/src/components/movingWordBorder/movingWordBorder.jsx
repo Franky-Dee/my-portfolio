@@ -34,8 +34,6 @@ function BorderSide({ position }) {
               style={{
                 fontSize: "64px",
                 fontFamily: fonts[i % fonts.length],
-                // margin: "100px 100px",
-                display: "inline-block",
                 transform:
                   position === "left"
                     ? "rotate(90deg)"

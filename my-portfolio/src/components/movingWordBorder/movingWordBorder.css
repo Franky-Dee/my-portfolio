@@ -1,20 +1,28 @@
 .moving-text-border {
   position: absolute;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   pointer-events: none;
   background-color: white;
 }
 
-.top-border, .bottom-border {
+/* Horizontal sides */
+.top-border,
+.bottom-border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 150%;
   height: 100px;
   white-space: nowrap;
+  flex-direction: row;
 }
 
-.left-border, .right-border {
+/* Vertical sides */
+.left-border,
+.right-border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 150%;
   width: 100px;
   flex-direction: column;
@@ -25,16 +33,22 @@
 .left-border { left: 0; }
 .right-border { right: 0; }
 
-.words-left, .words-right {
-    margin:
+.words-top, .words-bottom {
+  margin: 0 10px;
 }
 
-.words-top, .words-bottom {
-    margin: 10px;
+.words-left, .words-right {
+  margin: 10px 0;
 }
 
 .moving-text {
-  display: inline-block;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.left-border .moving-text,
+.right-border .moving-text {
+  flex-direction: column;
 }
 
 .top-border .moving-text {
@@ -43,12 +57,6 @@
 
 .bottom-border .moving-text {
   animation: scroll-left 50s linear infinite;
-}
-
-.left-border .moving-text,
-.right-border .moving-text {
-  display: flex;
-  flex-direction: column;
 }
 
 .left-border .moving-text {
