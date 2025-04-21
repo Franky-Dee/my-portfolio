@@ -28,21 +28,16 @@ function BorderSide({ position }) {
     <div className={`moving-text-border ${position}-border`}>
       <div className="moving-text">
         {[...Array(2)].flatMap((_, j) =>
-          Array.from({ length: 50 }, (_, i) => (
-            <span className={`words-${position}`}
+          words.map((word, i) => (
+            <span
+              className={`words-${position}`}
               key={`${j}-${i}`}
               style={{
                 fontSize: "64px",
                 fontFamily: fonts[i % fonts.length],
-                transform:
-                  position === "left"
-                    ? "rotate(90deg)"
-                    : position === "right"
-                    ? "rotate(-90deg)"
-                    : "none"
               }}
             >
-              {words[i % words.length]}
+              {word}
             </span>
           ))
         )}
@@ -50,5 +45,6 @@ function BorderSide({ position }) {
     </div>
   );
 }
+
 
 export default MovingWordBorder;

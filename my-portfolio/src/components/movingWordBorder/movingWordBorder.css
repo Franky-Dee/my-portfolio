@@ -2,7 +2,23 @@
   position: absolute;
   overflow: hidden;
   pointer-events: none;
-  background-color: white;
+  background-color: transparent; /* Removed white background to avoid hiding words */
+}
+
+.top-border {
+  top: 0;
+}
+
+.bottom-border {
+  bottom: 0;
+}
+
+.left-border {
+  left: 0;
+}
+
+.right-border {
+  right: 0;
 }
 
 /* Horizontal sides */
@@ -29,45 +45,46 @@
   top: 0;
 }
 
-.top-border { top: 0; left: 0; }
-.bottom-border { bottom: 0; left: 0; }
-.left-border { left: 0; }
-.right-border { right: 0; }
-
+/* For words inside the top/bottom borders */
 .words-top, .words-bottom {
   margin: 0 10px;
 }
 
+/* For words inside the left/right borders */
 .words-left, .words-right {
   margin: 10px 0;
 }
 
-.moving-text {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
+/* Use writing-mode for vertical text */
 .left-border .moving-text,
 .right-border .moving-text {
   flex-direction: column;
+  writing-mode: vertical-rl; /* Aligns text vertically without rotating each word */
 }
 
+/* Remove individual word rotation */
+.words-left, .words-right {
+  transform: none;
+}
+
+/* Animations for scrolling */
 .top-border .moving-text {
-  animation: scroll-right 50s linear infinite;
+  animation: scroll-right 12s linear infinite;
 }
 
 .bottom-border .moving-text {
-  animation: scroll-left 50s linear infinite;
+  animation: scroll-left 12s linear infinite;
 }
 
 .left-border .moving-text {
-  animation: scroll-up 60s linear infinite;
+  animation: scroll-up 12s linear infinite;
 }
 
 .right-border .moving-text {
-  animation: scroll-down 60s linear infinite;
+  animation: scroll-down 12s linear infinite;
 }
 
+/* Animations for scrolling */
 @keyframes scroll-left {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -86,4 +103,15 @@
 @keyframes scroll-down {
   from { transform: translateY(-50%); }
   to { transform: translateY(0); }
+}
+
+/* Ensuring enough space for the words to scroll smoothly */
+.left-border .moving-text,
+.right-border .moving-text {
+  min-height: 200%; /* Increased height for the left and right borders to ensure smooth scrolling */
+}
+
+.top-border .moving-text,
+.bottom-border .moving-text {
+  min-width: 200%; /* Increased width for top and bottom borders for smooth scrolling */
 }
