@@ -26,6 +26,7 @@
   height: 150%;
   width: 100px;
   flex-direction: column;
+  top: 0;
 }
 
 .top-border { top: 0; left: 0; }
