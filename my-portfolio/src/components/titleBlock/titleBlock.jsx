@@ -12,19 +12,24 @@ const fonts = [
     "'Danfo', serif",
 ];
 
-function TitleBlock() {
+function TitleBlock({ onMouseEnter, onMouseLeave }) {
   const [font, setFont] = useState(fonts[0])
 
   useEffect(() => {
     const randomFont = fonts[Math.floor(Math.random() * fonts.length)]
     setFont(randomFont)
-  })
+  }, [])
 
   return (
     <>
-        <div className="name" style={{fontFamily: font}}>
-            FrankyDee
-        </div>
+      <div 
+        className="name" 
+        style={{ fontFamily: font }}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >            
+        FrankyDee
+      </div>
     </>
   )
 }
