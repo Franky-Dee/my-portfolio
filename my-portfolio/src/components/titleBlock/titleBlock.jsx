@@ -24,11 +24,14 @@ function TitleBlock({ onMouseEnter, onMouseLeave }) {
     <>
       <div 
         className="name" 
-        style={{ fontFamily: font }}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
       >            
-        FrankyDee
+        <h1
+          style={{ fontFamily: font }}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
+            FrankyDee
+        </h1>
       </div>
     </>
   )
