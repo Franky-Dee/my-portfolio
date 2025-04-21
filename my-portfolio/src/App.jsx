@@ -2,7 +2,7 @@ import LandingPage from './pages/landingPage/landingPage.jsx'
 import "./App.css"
 
 import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 
 function App() {
     const [mousePosition, setMousePosition] = useState({
@@ -49,6 +49,7 @@ function App() {
                 className="cursor"
                 variants={variants}
                 animate={cursorVariant}
+                position="fixed"
             />
         </>
     )
