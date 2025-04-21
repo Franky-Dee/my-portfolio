@@ -1,15 +1,29 @@
 import './movingWordBorder.css';
 
-const words = ["Bash", "PostgreSQL", "Franky", "Python", "404", "Git", "Linux", "JavaScript", "CODE", "SQL", "NeoVim", "XML", "React", "<Error>" ];
+const words = [
+  "Bash", "PostgreSQL", "Franky", "Python", "404",
+  "Git", "Linux", "JavaScript", "CODE", "SQL",
+  "NeoVim", "XML", "React", "<Error>",
+  "Bash", "PostgreSQL", "Franky", "Python", "404",
+  "Git", "Linux", "JavaScript", "CODE", "SQL",
+  "NeoVim", "XML", "React", "<Error>",
+  "Bash", "PostgreSQL", "Franky", "Python", "404",
+  "Git", "Linux", "JavaScript", "CODE", "SQL",
+  "NeoVim", "XML", "React", "<Error>",
+  "Bash", "PostgreSQL", "Franky", "Python", "404",
+  "Git", "Linux", "JavaScript", "CODE", "SQL",
+  "NeoVim", "XML", "React", "<Error>"
+];
+
 const fonts = [
-    "'DM Serif Text', serif",
-    "'Imperial Script', cursive",
-    "'Fascinate Inline', system-ui",
-    "'Silkscreen', sans-serif",
-    "'Creepster', system-ui",
-    "'Notable', sans-serif",
-    "'Libre Barcode 128 Text', system-ui",
-    "'Danfo', serif",
+  "'DM Serif Text', serif",
+  "'Imperial Script', cursive",
+  "'Fascinate Inline', system-ui",
+  "'Silkscreen', sans-serif",
+  "'Creepster', system-ui",
+  "'Notable', sans-serif",
+  "'Libre Barcode 128 Text', system-ui",
+  "'Danfo', serif",
 ];
 
 function MovingWordBorder() {
@@ -45,6 +59,5 @@ function BorderSide({ position }) {
     </div>
   );
 }
-
 
 export default MovingWordBorder;
