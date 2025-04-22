@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 import "./titleBlock.css";
 
 const fonts = [
@@ -14,30 +15,36 @@ const fonts = [
 
 function TitleBlock({ onMouseEnter, onMouseLeave }) {
   const [font, setFont] = useState(fonts[0]);
+  const controls = useAnimation();
 
   useEffect(() => {
     const changeFont = () => {
       const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
       setFont(randomFont);
+
+      controls.start({
+        scale: [1, 1.2, 0.95, 1],
+        transition: { duration: 0.4, ease: "easeOut" },
+      });
     };
 
     window.addEventListener("click", changeFont);
 
-    // Cleanup the event listener when component unmounts
     return () => {
       window.removeEventListener("click", changeFont);
     };
-  }, []);
+  }, [controls]);
 
   return (
     <div className="name">
-      <h1
+      <motion.h1
         style={{ fontFamily: font }}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        animate={controls}
       >
         FrankyDee
-      </h1>
+      </motion.h1>
     </div>
   );
 }
