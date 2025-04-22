@@ -1,4 +1,4 @@
-import  {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import "./titleBlock.css";
 
 const fonts = [
@@ -13,28 +13,33 @@ const fonts = [
 ];
 
 function TitleBlock({ onMouseEnter, onMouseLeave }) {
-  const [font, setFont] = useState(fonts[0])
+  const [font, setFont] = useState(fonts[0]);
 
   useEffect(() => {
-    const randomFont = fonts[Math.floor(Math.random() * fonts.length)]
-    setFont(randomFont)
-  }, [])
+    const changeFont = () => {
+      const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+      setFont(randomFont);
+    };
+
+    window.addEventListener("click", changeFont);
+
+    // Cleanup the event listener when component unmounts
+    return () => {
+      window.removeEventListener("click", changeFont);
+    };
+  }, []);
 
   return (
-    <>
-      <div 
-        className="name" 
-      >            
-        <h1
-          style={{ fontFamily: font }}
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-        >
-            FrankyDee
-        </h1>
-      </div>
-    </>
-  )
+    <div className="name">
+      <h1
+        style={{ fontFamily: font }}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        FrankyDee
+      </h1>
+    </div>
+  );
 }
 
-export default TitleBlock
+export default TitleBlock;

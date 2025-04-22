@@ -9,4 +9,5 @@
 .name > h1 {
     font-size: 200px;
     cursor: default;
+    user-select: none;
 }
