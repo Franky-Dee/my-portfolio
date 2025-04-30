@@ -1,13 +1,14 @@
 .name {
-    margin-top: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: transparent;
+    margin-top: 90px;
 }
 
 .name > h1 {
     font-size: 175px;
     cursor: default;
     user-select: none;
+    margin-bottom: 50px;
 }
