@@ -2,7 +2,6 @@
   position: absolute;
   overflow: hidden;
   pointer-events: none;
-  background-color: transparent; /* transparent to avoid hiding words */
 }
 
 .top-border {
@@ -62,7 +61,7 @@
 }
 
 .words-left, .words-right {
-  transform: none; /* No need to rotate */
+  transform: none;
 }
 
 /* Make sure there's enough room for seamless looping */
