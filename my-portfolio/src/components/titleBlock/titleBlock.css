@@ -1,5 +1,5 @@
 .name {
-    margin-top: 20vh;
+    margin-top: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,7 +7,7 @@
 }
 
 .name > h1 {
-    font-size: 200px;
+    font-size: 175px;
     cursor: default;
     user-select: none;
 }

@@ -3,14 +3,14 @@ import { motion, useAnimation } from "framer-motion";
 import "./titleBlock.css";
 
 const fonts = [
-    "'DM Serif Text', serif",
-    "'Imperial Script', cursive",
-    "'Fascinate Inline', system-ui",
-    "'Silkscreen', sans-serif",
-    "'Creepster', system-ui",
-    "'Notable', sans-serif",
-    "'Libre Barcode 128 Text', system-ui",
-    "'Danfo', serif",
+  "'DM Serif Text', serif",
+  "'Imperial Script', cursive",
+  "'Fascinate Inline', system-ui",
+  "'Silkscreen', sans-serif",
+  "'Creepster', system-ui",
+  "'Notable', sans-serif",
+  "'Libre Barcode 128 Text', system-ui",
+  "'Danfo', serif",
 ];
 
 function TitleBlock({ onMouseEnter, onMouseLeave }) {
