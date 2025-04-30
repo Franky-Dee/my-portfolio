@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './typingText.css'
 
-const TypingText = ({ text, speed = 100 }) => {
+const TypingText = ({ font, text, speed = 100 }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [index, setIndex] = useState(0);
 
@@ -19,6 +19,7 @@ const TypingText = ({ text, speed = 100 }) => {
   return (
     <span 
         className="typing-text"
+        style={{ fontFamily: font }}
         >
         {displayedText}
     </span>
