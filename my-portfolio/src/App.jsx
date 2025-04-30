@@ -1,4 +1,4 @@
-import LandingPage from './pages/landingPage/landingPage.jsx'
+import LandingPage from '@pages/landingPage/landingPage.jsx'
 import "./App.css"
 
 import { useState, useEffect } from "react"

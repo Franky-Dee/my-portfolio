@@ -1,5 +1,5 @@
-import MovingWordBorder from '../../components/movingWordBorder/movingWordBorder.jsx'
-import TitleBlock from '../../components/titleBlock/titleBlock.jsx'
+import MovingWordBorder from '@components/movingWordBorder/movingWordBorder.jsx'
+import TitleBlock from '@components/titleBlock/titleBlock.jsx'
 
 function LandingPage({ setCursorVariant }) {
   const textEnter = () => setCursorVariant("text")
