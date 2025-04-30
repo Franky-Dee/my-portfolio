@@ -77,19 +77,19 @@
 
 /* Smooth infinite scroll animations */
 .top-border .moving-text {
-  animation: scroll-right 40s linear infinite;
+  animation: scroll-right 30s linear infinite;
 }
 
 .bottom-border .moving-text {
-  animation: scroll-left 40s linear infinite;
+  animation: scroll-left 30s linear infinite;
 }
 
 .left-border .moving-text {
-  animation: scroll-up 40s linear infinite;
+  animation: scroll-up 30s linear infinite;
 }
 
 .right-border .moving-text {
-  animation: scroll-down 40s linear infinite;
+  animation: scroll-down 30s linear infinite;
 }
 
 /* Keyframes for infinite seamless looping */

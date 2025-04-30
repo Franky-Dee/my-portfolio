@@ -3,16 +3,9 @@ import './movingWordBorder.css';
 const words = [
   "Bash", "PostgreSQL", "Franky", "Python", "404",
   "Git", "Linux", "JavaScript", "CODE", "SQL",
-  "NeoVim", "XML", "React", "<Error>",
-  "Bash", "PostgreSQL", "Franky", "Python", "404",
-  "Git", "Linux", "JavaScript", "CODE", "SQL",
-  "NeoVim", "XML", "React", "<Error>",
-  "Bash", "PostgreSQL", "Franky", "Python", "404",
-  "Git", "Linux", "JavaScript", "CODE", "SQL",
-  "NeoVim", "XML", "React", "<Error>",
-  "Bash", "PostgreSQL", "Franky", "Python", "404",
-  "Git", "Linux", "JavaScript", "CODE", "SQL",
-  "NeoVim", "XML", "React", "<Error>"
+  "GitHub", "NeoVim", "XML", "React", "<Error>",
+  "Lua", "CSS", "Odoo", "HTML", "BitBucket",
+  "SQLite", "AWS", "Markdown"
 ];
 
 const fonts = [
