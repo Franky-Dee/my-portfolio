@@ -43,7 +43,6 @@ function LandingPage({ setCursorVariant }) {
             className="title-block"
         />
         <TypingText 
-            text="Hello World!"
             font={font}
         />
     </div>
