@@ -30,6 +30,7 @@
   height: 100px;
   white-space: nowrap;
   flex-direction: row;
+  background: white;
 }
 
 /* Vertical sides */

@@ -1,7 +1,7 @@
 .about-container {
     background: black;
     width: 100vw;
-    height: 440px;
+    height: 100vh;
     top: 100vh;
     display: flex;
     flex-direction: column;

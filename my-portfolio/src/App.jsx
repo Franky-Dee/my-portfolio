@@ -66,14 +66,14 @@ function App() {
             {clickPosition && (
                 <span 
                     style={{
-                        position: 'fixed',
+                        position: 'absolute',
                         left: clickPosition.x,
                         top: clickPosition.y,
                         fontColor: 'black',
                         background: 'none',
                         fontSize: '30px',
                         pointerEvents: 'none',
-                        fontFamily: "'DM Serif Text', serif",
+                        fontFamily: "'Jersey 15', sans-serif",
                     }}
                 >
                     "click"

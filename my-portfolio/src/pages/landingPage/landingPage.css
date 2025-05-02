@@ -3,7 +3,6 @@
     width: 100vw;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
 }
 
@@ -15,3 +14,16 @@
     margin-top: 10px;
 }
 
+.bottom-left-arrow {
+    position: absolute;
+    bottom: 200px;
+    left: 200px;
+    font-size: 2rem;
+    image-rendering: pixelated;
+    cursor: default;
+    z-index: 10;
+}
+
+.down-image {
+    height: 160px
+}
