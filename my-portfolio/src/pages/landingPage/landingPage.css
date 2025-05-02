@@ -26,6 +26,7 @@
 .down-image {
     height: 160px;
     border: none;
+    user-select: none;
 }
 
 .down-button {

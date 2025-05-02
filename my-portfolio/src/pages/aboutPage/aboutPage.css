@@ -33,12 +33,21 @@
     font-family: "Jersey 15", sans-serif;
     justify-content: center;
     align-items: center;
+    cursor: default;
+    user-select: none;
 }
 
 .description {
     background: black;
-    color: white;
+    color: #808080;
     margin: 40px 20px 40px 20px;
     font-size: 100px;
     font-family: "Jersey 15", sans-serif;
+    cursor: default;
+    user-select: none;
+    transition: color 0.5s ease;
+}
+
+.description:hover {
+    color: white;
 }

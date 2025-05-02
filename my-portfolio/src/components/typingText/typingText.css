@@ -2,6 +2,7 @@
   white-space: pre;
   color: black;
   font-size: 35px;
+  user-select: none;
 }
 
 .blinking-cursor {
