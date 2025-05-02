@@ -20,7 +20,6 @@
   right: 0;
 }
 
-/* Horizontal sides */
 .top-border,
 .bottom-border {
   display: flex;
@@ -33,7 +32,6 @@
   background: white;
 }
 
-/* Vertical sides */
 .left-border,
 .right-border {
   display: flex;
@@ -45,7 +43,6 @@
   top: 0;
 }
 
-/* Word spacing */
 .words-top, .words-bottom {
   margin: 0 10px;
 }
@@ -54,7 +51,6 @@
   margin: 10px 0;
 }
 
-/* Use vertical writing-mode for left and right words */
 .left-border .moving-text,
 .right-border .moving-text {
   flex-direction: column;
@@ -65,7 +61,6 @@
   transform: none;
 }
 
-/* Make sure there's enough room for seamless looping */
 .left-border .moving-text,
 .right-border .moving-text {
   min-height: 200%;
@@ -76,7 +71,6 @@
   min-width: 200%;
 }
 
-/* Smooth infinite scroll animations */
 .top-border .moving-text {
   animation: scroll-right 30s linear infinite;
 }
@@ -93,7 +87,6 @@
   animation: scroll-down 30s linear infinite;
 }
 
-/* Keyframes for infinite seamless looping */
 @keyframes scroll-left {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }

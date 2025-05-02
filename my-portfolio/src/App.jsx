@@ -17,17 +17,15 @@ function App() {
             setMousePosition({ x: e.clientX, y: e.clientY });
         }
 
-        const handleClick = e => {
-            const { innerWidth, innerHeight } = window;
-            const x = e.clientX;
-            const y = e.clientY;
+    const handleClick = () => {
+        const { innerWidth, innerHeight } = window;
+        const padding = 100;
 
-            if (x > 100 && x < innerWidth - 100 && y > 100 && y < innerHeight - 100) {
-                setClickPosition({ x, y });
-            } else {
-                setClickPosition(null);
-            }
-        }
+        const x = Math.floor(Math.random() * (innerWidth - padding * 2)) + padding;
+        const y = Math.floor(Math.random() * (innerHeight - padding * 2)) + padding;
+
+        setClickPosition({ x, y });
+    }
 
         window.addEventListener("mousemove", mouseMove);
         window.addEventListener("click", handleClick);
