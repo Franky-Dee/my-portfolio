@@ -22,6 +22,14 @@ function LandingPage({ setCursorVariant }) {
 
   const [font, setFont] = useState(fonts[0]);
 
+  const handleScroll = () => {
+        window.scrollBy({
+            top: window.innerHeight + 10,
+            left: 0,
+            behavior: "smooth",
+        });
+  }
+
   useEffect(() => {
     const changeFont = () => {
       const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
@@ -48,7 +56,9 @@ function LandingPage({ setCursorVariant }) {
         animate={{ y: [0, -30, 0] }}
         transition={{ repeat: Infinity, duration: 1 }}
       >
-        <img src="../../../public/images/down-icon.svg" className="down-image"/>
+    <button onClick={handleScroll} className="down-button">
+            <img src="../../../public/images/down-icon.svg" className="down-image"/>
+        </button>
       </motion.div>
     </div>
   );

@@ -21,9 +21,12 @@
     font-size: 2rem;
     image-rendering: pixelated;
     cursor: default;
-    z-index: 10;
 }
 
 .down-image {
     height: 160px
+}
+
+.down-button {
+    border: none;
 }
