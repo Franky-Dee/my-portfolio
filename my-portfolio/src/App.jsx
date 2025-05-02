@@ -42,8 +42,8 @@ function App() {
             y: mousePosition.y - 16,
         },
         text: {
-            height: 400,
-            width: 400,
+            height: 600,
+            width: 600,
             x: mousePosition.x - 200,
             y: mousePosition.y - 200,
             backgroundColor: "white",
@@ -54,7 +54,7 @@ function App() {
     return (
         <>
             <LandingPage setCursorVariant={setCursorVariant}/>
-            <AboutPage/>
+            <AboutPage setCursorVariant={setCursorVariant}/>
             <motion.div 
                 className="cursor"
                 variants={variants}
