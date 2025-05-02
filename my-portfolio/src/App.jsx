@@ -8,7 +8,7 @@ import { motion } from "motion/react"
 
 
 function App() {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0, id: false });
     const [cursorVariant, setCursorVariant] = useState("default");
     const [clickPosition, setClickPosition] = useState(null);
 
@@ -24,7 +24,7 @@ function App() {
         const x = Math.floor(Math.random() * (innerWidth - padding * 2)) + padding;
         const y = Math.floor(Math.random() * (innerHeight - padding * 2)) + padding;
 
-        setClickPosition({ x, y });
+        setClickPosition({ x, y, id: Date.now() });
     }
 
         window.addEventListener("mousemove", mouseMove);
@@ -62,7 +62,16 @@ function App() {
                 position="fixed"
             />
             {clickPosition && (
-                <span 
+                <motion.span 
+                    key={clickPosition.id}
+                    initial={{ y: 20, scale: 0.5, opacity: 0 }}
+                    animate={{ y: 0, scale: 1, opacity: 1 }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 10,
+                        duration: 0.3,
+                    }}
                     style={{
                         position: 'absolute',
                         left: clickPosition.x,
@@ -75,7 +84,7 @@ function App() {
                     }}
                 >
                     "click"
-                </span>
+                </motion.span>
             )}
         </>
     )
