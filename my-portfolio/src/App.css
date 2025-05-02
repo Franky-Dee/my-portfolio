@@ -2,6 +2,10 @@
   background-color: white;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 .cursor {
   background-color: black;
   height: 32px;

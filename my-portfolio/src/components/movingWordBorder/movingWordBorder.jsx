@@ -12,11 +12,11 @@ const fonts = [
   "'DM Serif Text', serif",
   "'Imperial Script', cursive",
   "'Fascinate Inline', system-ui",
-  "'Silkscreen', sans-serif",
   "'Creepster', system-ui",
   "'Notable', sans-serif",
   "'Libre Barcode 128 Text', system-ui",
   "'Danfo', serif",
+  "'Jersey 15', sans-serif",
 ];
 
 function MovingWordBorder() {

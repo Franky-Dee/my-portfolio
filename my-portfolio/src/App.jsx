@@ -1,4 +1,6 @@
 import LandingPage from '@pages/landingPage/landingPage.jsx'
+import AboutPage from '@pages/aboutPage/aboutPage.jsx'
+
 import "./App.css"
 
 import { useState, useEffect } from "react"
@@ -54,6 +56,7 @@ function App() {
     return (
         <>
             <LandingPage setCursorVariant={setCursorVariant}/>
+            <AboutPage/>
             <motion.div 
                 className="cursor"
                 variants={variants}
