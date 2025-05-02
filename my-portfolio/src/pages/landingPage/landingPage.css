@@ -24,7 +24,8 @@
 }
 
 .down-image {
-    height: 160px
+    height: 160px;
+    border: none;
 }
 
 .down-button {
