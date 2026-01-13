@@ -16,18 +16,17 @@ const fonts = [
   "'Jersey 15', sans-serif",
 ];
 
-function LandingPage({ setCursorVariant }) {
+function LandingPage({ setCursorVariant, aboutRef }) {
   const textEnter = () => setCursorVariant("text");
   const textLeave = () => setCursorVariant("default");
 
   const [font, setFont] = useState(fonts[0]);
 
-  const handleScroll = () => {
-        window.scrollBy({
-            top: window.innerHeight + 10,
-            left: 0,
-            behavior: "smooth",
-        });
+  const handleScroll = (e) => {
+        e.stopPropagation();
+        if (aboutRef && aboutRef.current) {
+            aboutRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
   }
 
   useEffect(() => {
@@ -43,13 +42,15 @@ function LandingPage({ setCursorVariant }) {
   return (
     <div className="main-container">
       <MovingWordBorder />
-      <TitleBlock 
-        onMouseEnter={textEnter}
-        onMouseLeave={textLeave}
-        font={font}
-        className="title-block"
-      />
-      <TypingText font={font} />
+      <div className="center-content">
+        <TitleBlock 
+          onMouseEnter={textEnter}
+          onMouseLeave={textLeave}
+          font={font}
+          className="title-block"
+        />
+        <TypingText font={font} />
+      </div>
       <motion.div 
         className="bottom-left-arrow"
         initial={{ y: 0 }}

@@ -3,19 +3,35 @@ import AboutPage from '@pages/aboutPage/aboutPage.jsx'
 
 import "./App.css"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 
 
 function App() {
+    const aboutRef = useRef(null);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0, id: false });
     const [cursorVariant, setCursorVariant] = useState("default");
     const [clickPosition, setClickPosition] = useState(null);
+    const [currentSection, setCurrentSection] = useState("landing");
 
     useEffect(() => {
         const mouseMove = e => {
             setMousePosition({ x: e.clientX, y: e.clientY });
         }
+
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+            
+            if (scrollPosition < windowHeight / 2) {
+                setCurrentSection("landing");
+            } else {
+                setCurrentSection("about");
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
 
     const handleClick = () => {
         const { innerWidth, innerHeight } = window;
@@ -33,19 +49,26 @@ function App() {
         return () => {
             window.removeEventListener("mousemove", mouseMove);
             window.removeEventListener("click", handleClick);
+            window.removeEventListener("scroll", handleScroll);
         }
     }, []);
 
+    const isAboutPage = currentSection === "about";
+    
     const variants = {
         default: {
             x: mousePosition.x - 16,
             y: mousePosition.y - 16,
+            height: 32,
+            width: 32,
+            backgroundColor: isAboutPage ? "white" : "black",
+            mixBlendMode: "normal",
         },
         text: {
-            height: 400,
-            width: 400,
-            x: mousePosition.x - 200,
-            y: mousePosition.y - 200,
+            height: isAboutPage ? 80 : 400,
+            width: isAboutPage ? 80 : 400,
+            x: isAboutPage ? mousePosition.x - 40 : mousePosition.x - 200,
+            y: isAboutPage ? mousePosition.y - 40 : mousePosition.y - 200,
             backgroundColor: "white",
             mixBlendMode: "difference",
         }
@@ -53,13 +76,15 @@ function App() {
 
     return (
         <>
-            <LandingPage setCursorVariant={setCursorVariant}/>
-            <AboutPage setCursorVariant={setCursorVariant}/>
+            <LandingPage setCursorVariant={setCursorVariant} aboutRef={aboutRef}/>
+            <div ref={aboutRef}>
+                <AboutPage setCursorVariant={setCursorVariant}/>
+            </div>
             <motion.div 
                 className="cursor"
+                key={currentSection}
                 variants={variants}
                 animate={cursorVariant}
-                position="fixed"
             />
             {clickPosition && (
                 <motion.span 
