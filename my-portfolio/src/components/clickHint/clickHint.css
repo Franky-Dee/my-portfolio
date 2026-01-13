@@ -1,0 +1,61 @@
+.click-hint {
+  position: absolute;
+  top: 120px;
+  right: 120px;
+  background: white;
+  color: black;
+  padding: 15px 25px;
+  font-family: "Jersey 15", sans-serif;
+  font-size: 28px;
+  border: 4px solid black;
+  box-shadow: 8px 8px 0px black;
+  z-index: 100;
+  cursor: default;
+  user-select: none;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Laptop */
+@media (max-width: 1440px) {
+  .click-hint {
+    top: 100px;
+    right: 100px;
+    padding: 12px 20px;
+    font-size: 24px;
+    border: 3px solid black;
+    box-shadow: 6px 6px 0px black;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .click-hint {
+    top: 90px;
+    right: 90px;
+    padding: 10px 18px;
+    font-size: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .click-hint {
+    top: 70px;
+    right: 70px;
+    padding: 8px 15px;
+    font-size: 18px;
+    border: 2px solid black;
+    box-shadow: 4px 4px 0px black;
+  }
+}
+
+@media (max-width: 480px) {
+  .click-hint {
+    top: 50px;
+    right: 50px;
+    padding: 6px 12px;
+    font-size: 16px;
+  }
+}

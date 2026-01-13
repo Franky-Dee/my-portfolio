@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import MovingWordBorder from '@components/movingWordBorder/movingWordBorder.jsx'
 import TitleBlock from '@components/titleBlock/titleBlock.jsx'
 import TypingText from '@components/typingText/typingText.jsx'
+import ClickHint from '@components/clickHint/clickHint.jsx'
 import '@pages/landingPage/landingPage.css';
 
 const fonts = [
@@ -42,6 +43,7 @@ function LandingPage({ setCursorVariant, aboutRef }) {
   return (
     <div className="main-container">
       <MovingWordBorder />
+      <ClickHint />
       <div className="center-content">
         <TitleBlock 
           onMouseEnter={textEnter}

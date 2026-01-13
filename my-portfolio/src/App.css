@@ -22,6 +22,24 @@ html, body {
   display: none;
 }
 
+/* Text selection styling - inverted colors for black and white aesthetic */
+::selection {
+  background-color: black;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: black;
+  color: white;
+}
+
+/* Inverted selection for black backgrounds */
+.about-container ::selection,
+.about-container ::-moz-selection {
+  background-color: white;
+  color: black;
+}
+
 .cursor {
   height: 32px;
   width: 32px;
