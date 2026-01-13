@@ -4,7 +4,7 @@ import AboutPage from '@pages/aboutPage/aboutPage.jsx'
 import "./App.css"
 
 import { useState, useEffect } from "react"
-import { motion } from "motion/react"
+import { motion } from "framer-motion"
 
 
 function App() {
@@ -54,7 +54,7 @@ function App() {
     return (
         <>
             <LandingPage setCursorVariant={setCursorVariant}/>
-            <AboutPage/>
+            <AboutPage setCursorVariant={setCursorVariant}/>
             <motion.div 
                 className="cursor"
                 variants={variants}
