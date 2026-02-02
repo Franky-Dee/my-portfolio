@@ -5,10 +5,17 @@ import AsciiFlash from '@components/asciiFlash/asciiFlash.jsx';
 
 function AboutPage({ setCursorVariant }) {
   const [flashTrigger, setFlashTrigger] = useState(0);
+  const [projectsClicks, setProjectsClicks] = useState(0);
+  const [flashMode, setFlashMode] = useState('first');
   const textEnter = () => setCursorVariant("text");
   const textLeave = () => setCursorVariant("default");
 
   const handleProjectsClick = () => {
+    setProjectsClicks((prev) => {
+      const next = prev + 1;
+      setFlashMode(next >= 2 ? 'twice' : 'first');
+      return next;
+    });
     setFlashTrigger(prev => prev + 1);
   };
 
@@ -81,11 +88,11 @@ function AboutPage({ setCursorVariant }) {
                 onMouseEnter={textEnter}
                 onMouseLeave={textLeave}
               >
-                PROJECTS
+                {projectsClicks === 0 ? 'PROJECTS' : 'Try Again?'}
               </motion.button>
             </div>
         </div>
-        <AsciiFlash trigger={flashTrigger} />
+        <AsciiFlash trigger={flashTrigger} mode={flashMode} />
     </div>
   )
 }

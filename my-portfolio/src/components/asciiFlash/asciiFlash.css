@@ -27,18 +27,18 @@
 
 .ascii-flash .error-text {
   font-family: 'Jersey 15', sans-serif;
-  font-size: min(22vw, 35vh);
+  font-size: min(32vw, 60vh);
   margin: 0;
   text-align: center;
   font-weight: normal;
-  letter-spacing: min(2vw, 24px);
-  line-height: 0.9;
+  letter-spacing: min(2.5vw, 30px);
+  line-height: 0.88;
   white-space: nowrap;
   user-select: none;
 }
 .ascii-flash .lol-text {
   font-family: 'Imperial Script', cursive;
-  font-size: min(40vw, 40vh);
+  font-size: min(65vw, 70vh);
   margin: 0;
   text-align: center;
   font-weight: normal;

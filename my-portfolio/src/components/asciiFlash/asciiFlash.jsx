@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import './asciiFlash.css';
 
-function AsciiFlash({ trigger }) {
+function AsciiFlash({ trigger, mode = 'first' }) {
   const [showFlash, setShowFlash] = useState(false);
   const [flashContent, setFlashContent] = useState('error');
+  const [isWhiteBackground, setIsWhiteBackground] = useState(true);
 
   const asciiArt = `                                ...----....
                          ..-:"''         ''"-..
@@ -59,39 +60,58 @@ function AsciiFlash({ trigger }) {
   useEffect(() => {
     if (!trigger) return;
 
-    // First flash: ERROR with white background
-    setFlashContent('error');
+    const step = 240; // slightly longer, still aggressive
+    const seq =
+      mode === 'twice'
+        ? [
+            { content: 'got', white: true },
+            { content: 'you', white: false },
+            { content: 'twice', white: true },
+          ]
+        : [
+            { content: 'error', white: true },
+            { content: 'lol', white: false },
+          ];
+
     setShowFlash(true);
 
-    // Second flash: LOL with black background (aggressive timing)
-    const skullTimer = setTimeout(() => {
-      setFlashContent('lol');
-    }, 180);
+    const timers = seq.map((item, i) =>
+      setTimeout(() => {
+        setFlashContent(item.content);
+        setIsWhiteBackground(item.white);
+      }, i * step)
+    );
 
-    // Hide everything
     const hideTimer = setTimeout(() => {
       setShowFlash(false);
-      setFlashContent('error'); // Reset for next trigger
-    }, 360);
+      setFlashContent('error');
+      setIsWhiteBackground(true);
+    }, seq.length * step + 80);
 
     return () => {
-      clearTimeout(skullTimer);
+      timers.forEach(clearTimeout);
       clearTimeout(hideTimer);
     };
-  }, [trigger]);
+  }, [trigger, mode]);
 
   if (!showFlash) return null;
 
-  // ERROR = white background, Skull = black background
-  const isWhiteBackground = flashContent === 'error';
+  // Container background: white for 'white' phases, else black
 
   return (
     <div key={flashContent} className={`ascii-flash ${isWhiteBackground ? 'inverted' : ''}`}>
-      {flashContent === 'error' ? (
-        <h1 className="error-text">&lt;ERROR&gt;</h1>
-      ) : (
-        <h1 className="lol-text">LOL</h1>
-      )}
+      {(() => {
+        const textMap = {
+          error: '<ERROR>',
+          lol: 'LOL',
+          got: 'Got',
+          you: 'You',
+          twice: 'Twice',
+        };
+        const fancy = flashContent === 'lol' || flashContent === 'twice';
+        const cls = fancy ? 'lol-text' : 'error-text';
+        return <h1 className={cls}>{textMap[flashContent]}</h1>;
+      })()}
     </div>
   );
 }
