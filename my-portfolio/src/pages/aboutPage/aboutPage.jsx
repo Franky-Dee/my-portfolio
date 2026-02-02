@@ -2,11 +2,13 @@ import '@pages/aboutPage/aboutPage.css'
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import AsciiFlash from '@components/asciiFlash/asciiFlash.jsx';
+import ProjectsPage from '@pages/projectsPage/projectsPage.jsx';
 
 function AboutPage({ setCursorVariant }) {
   const [flashTrigger, setFlashTrigger] = useState(0);
   const [projectsClicks, setProjectsClicks] = useState(0);
   const [flashMode, setFlashMode] = useState('first');
+  const [showProjects, setShowProjects] = useState(false);
   const textEnter = () => setCursorVariant("text");
   const textLeave = () => setCursorVariant("default");
 
@@ -14,9 +16,13 @@ function AboutPage({ setCursorVariant }) {
     setProjectsClicks((prev) => {
       const next = prev + 1;
       setFlashMode(next >= 2 ? 'twice' : 'first');
+      if (next >= 3) {
+        setShowProjects(true);
+      } else {
+        setFlashTrigger((p) => p + 1);
+      }
       return next;
     });
-    setFlashTrigger(prev => prev + 1);
   };
 
   const aboutText = "ABOUT";
@@ -88,11 +94,14 @@ function AboutPage({ setCursorVariant }) {
                 onMouseEnter={textEnter}
                 onMouseLeave={textLeave}
               >
-                {projectsClicks === 0 ? 'PROJECTS' : 'Try Again?'}
+                {projectsClicks === 0 ? 'PROJECTS' : projectsClicks === 1 ? 'Try Again?' : 'Third times the charm'}
               </motion.button>
             </div>
         </div>
         <AsciiFlash trigger={flashTrigger} mode={flashMode} />
+        {showProjects && (
+          <ProjectsPage onClose={() => setShowProjects(false)} />
+        )}
     </div>
   )
 }
