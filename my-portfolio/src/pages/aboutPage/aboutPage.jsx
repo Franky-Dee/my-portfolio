@@ -1,9 +1,16 @@
 import '@pages/aboutPage/aboutPage.css'
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import AsciiFlash from '@components/asciiFlash/asciiFlash.jsx';
 
 function AboutPage({ setCursorVariant }) {
+  const [flashTrigger, setFlashTrigger] = useState(0);
   const textEnter = () => setCursorVariant("text");
   const textLeave = () => setCursorVariant("default");
+
+  const handleProjectsClick = () => {
+    setFlashTrigger(prev => prev + 1);
+  };
 
   const aboutText = "ABOUT";
   const meText = "ME";
@@ -55,17 +62,30 @@ function AboutPage({ setCursorVariant }) {
             </h1>
         </div>
         <div className="description-container">
-            <p 
-              className="description"
-              onMouseEnter={textEnter}
-              onMouseLeave={textLeave}
-            >
-              Full-stack developer with a passion for backend systems and deployment automation.
-              Proficient in Python, JavaScript, and their ecosystems. Experienced in Linux environments,
-              performance optimization, and building scalable solutions. Always exploring new technologies
-              and experimenting with creative frontend projects.
-            </p>
+            <div className="description-wrapper">
+              <p 
+                className="description"
+                onMouseEnter={textEnter}
+                onMouseLeave={textLeave}
+              >
+                Full-stack developer with a passion for backend systems and deployment automation.
+                Proficient in Python, JavaScript, and their ecosystems. Experienced in Linux environments,
+                performance optimization, and building scalable solutions. Always exploring new technologies
+                and experimenting with creative frontend projects.
+              </p>
+              <motion.button
+                className="projects-button"
+                onClick={handleProjectsClick}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onMouseEnter={textEnter}
+                onMouseLeave={textLeave}
+              >
+                PROJECTS
+              </motion.button>
+            </div>
         </div>
+        <AsciiFlash trigger={flashTrigger} />
     </div>
   )
 }
